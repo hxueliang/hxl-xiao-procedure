@@ -11,9 +11,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onShow: function (options) {
     const userinfo = wx.getStorageSync('userInfo');
-    console.log(userinfo);
+    console.log(userinfo,'==userinfo');
     this.setData({
       userinfo
     })

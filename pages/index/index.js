@@ -31,7 +31,12 @@ Page({
     }
     request(obj).then(res => {
       this.setData({
-        swiperList: res
+        swiperList: res.map(v=>{
+          return {
+            ...v,
+            navigator_url: v.navigator_url.replace('main','index')
+          }
+        })
       })
     });
   },
@@ -52,8 +57,21 @@ Page({
       url: '/home/floordata'
     }
     request(obj).then(res => {
+      console.log(res,'==获取楼层list');
       this.setData({
-        floorList: res
+        floorList: res.map(v=>{
+          return {
+            ...v,
+            product_list: v.product_list.map(v1=>{
+              let urlArr = v1.navigator_url.split('?');
+              let url = urlArr[0] + '/index?' + urlArr[1];
+              return {
+                ...v1,
+                navigator_url: url
+              }
+            })
+          }
+        })
       })
     });
   },

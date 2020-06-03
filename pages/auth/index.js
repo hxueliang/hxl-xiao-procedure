@@ -22,6 +22,7 @@ Page({
   async hendleGetUserInfo(e){
     const {encryptedData,rawData,iv,signature} = e.detail;
     const {code} = await login();
+    console.log(code,'==code');
     const obj = {
       encryptedData,
       rawData,
