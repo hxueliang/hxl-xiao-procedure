@@ -1,0 +1,9 @@
+<!--pages/login/index.wxml-->
+<button  
+    type="primary" 
+    plain="default" 
+    open-type="getUserInfo" 
+    bindgetuserinfo="hendleGetUserInfo">
+   登录 
+</button>
+
